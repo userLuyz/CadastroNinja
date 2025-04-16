@@ -1,5 +1,6 @@
-package dev.java10x.CadastroNinja;
+package dev.java10x.CadastroNinja.Ninjas;
 
+import dev.java10x.CadastroNinja.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,11 @@ public class NinjaModel {
     private String name;
     private String email;
     private short age;
+
+    // isso quer dizer que a classe ninja so pode ter uma missao - modelo entidade relacionamento
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // chave secundaria ou chave estrangeira
+    private MissoesModel missoes;
 
     public NinjaModel() {
     }
