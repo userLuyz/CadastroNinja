@@ -2,11 +2,17 @@ package dev.java10x.CadastroNinja.Missoes;
 
 import dev.java10x.CadastroNinja.Ninjas.NinjaModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name = "tb_mission")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class MissoesModel {
 
     @Id
@@ -19,27 +25,4 @@ public class MissoesModel {
     @OneToMany(mappedBy = "missoes")
     private List<NinjaModel> ninjas;
 
-    public MissoesModel() {
-    }
-
-    public MissoesModel(String nameMission, char dificulty) {
-        this.nameMission = nameMission;
-        this.dificulty = dificulty;
-    }
-
-    public String getNameMission() {
-        return nameMission;
-    }
-
-    public void setNameMission(String nameMission) {
-        this.nameMission = nameMission;
-    }
-
-    public char getDificulty() {
-        return dificulty;
-    }
-
-    public void setDificulty(char dificulty) {
-        this.dificulty = dificulty;
-    }
 }
