@@ -2,13 +2,19 @@ package dev.java10x.CadastroNinja.Ninjas;
 
 import dev.java10x.CadastroNinja.Missoes.MissoesModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tb_cadastro_ninja")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class NinjaModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // gera automaticamente o ID
     private Long ID;
     private String name;
     private String email;
@@ -19,36 +25,4 @@ public class NinjaModel {
     @JoinColumn(name = "missoes_id") // chave secundaria ou chave estrangeira
     private MissoesModel missoes;
 
-    public NinjaModel() {
-    }
-
-    public NinjaModel(String name, String email, short age) {
-        this.name = name;
-        this.email = email;
-        this.age = age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public short getAge() {
-        return age;
-    }
-
-    public void setAge(short age) {
-        this.age = age;
-    }
 }
