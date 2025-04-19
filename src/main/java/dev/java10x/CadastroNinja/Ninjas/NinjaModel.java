@@ -9,17 +9,19 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "tb_cadastro_ninja")
 @NoArgsConstructor
-@AllArgsConstructor
-@Data
+@AllArgsConstructor // definição de construtores
+@Data // definição de getters/setters
 public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // gera automaticamente o ID
     private Long ID;
+    @Column(name = "name")
     private String name;
 
-    @Column(unique = true)
+    @Column(unique = true, name = "mail")
     private String email;
+    @Column(name = "age")
     private short age;
 
     // isso quer dizer que a classe ninja so pode ter uma missao - modelo entidade relacionamento
